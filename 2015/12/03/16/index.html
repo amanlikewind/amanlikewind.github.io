@@ -15,21 +15,16 @@
 
 
 
-<meta name="description" content="大家都知道Web App是通过浏览器来访问的，所以离线状态下是无法使用app的。其中web app中的一些资源并不经常改变，不需要每次都向服务器发送请求。这时应运而生的离线缓存就显得尤为突出。通过吧需要离线缓存储的文件列在一个manifest配置文件中。酱紫在离线情况下也可以使用app。">
+<meta name="description" content="CSS中有个有用且有趣且个人比较喜欢的属性 – visibility. 其有两个常用属性值：hidden与visible. 分别表示不可见与可见。OK，本文所说的API中也有Visibility这个单词，那他们表意一致？ 回答是：YES! //众人：妹啊，你以为是中国达人秀啊！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML5的离线储存怎么使用，工作原理能不能解释一下？">
-<meta property="og:url" content="http://yoursite.com/2015/12/03/2/index.html">
+<meta property="og:title" content="页面可见性（Page Visibility）API 可以有哪些用途？">
+<meta property="og:url" content="http://yoursite.com/2015/12/03/16/index.html">
 <meta property="og:site_name" content="华哥技术博客">
-<meta property="og:description" content="大家都知道Web App是通过浏览器来访问的，所以离线状态下是无法使用app的。其中web app中的一些资源并不经常改变，不需要每次都向服务器发送请求。这时应运而生的离线缓存就显得尤为突出。通过吧需要离线缓存储的文件列在一个manifest配置文件中。酱紫在离线情况下也可以使用app。">
-<meta property="og:image" content="http://yoursite.com/2015/12/03/2/image/01.jpg">
-<meta property="og:image" content="http://yoursite.com/2015/12/03/2/image/02.jpg">
-<meta property="og:image" content="http://yoursite.com/2015/12/03/2/image/02.jpg">
-<meta property="og:image" content="http://yoursite.com/2015/12/03/2/image/01.jpg">
-<meta property="og:updated_time" content="2017-07-13T13:18:47.281Z">
+<meta property="og:description" content="CSS中有个有用且有趣且个人比较喜欢的属性 – visibility. 其有两个常用属性值：hidden与visible. 分别表示不可见与可见。OK，本文所说的API中也有Visibility这个单词，那他们表意一致？ 回答是：YES! //众人：妹啊，你以为是中国达人秀啊！">
+<meta property="og:updated_time" content="2017-07-13T13:35:57.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTML5的离线储存怎么使用，工作原理能不能解释一下？">
-<meta name="twitter:description" content="大家都知道Web App是通过浏览器来访问的，所以离线状态下是无法使用app的。其中web app中的一些资源并不经常改变，不需要每次都向服务器发送请求。这时应运而生的离线缓存就显得尤为突出。通过吧需要离线缓存储的文件列在一个manifest配置文件中。酱紫在离线情况下也可以使用app。">
-<meta name="twitter:image" content="http://yoursite.com/2015/12/03/2/image/01.jpg">
+<meta name="twitter:title" content="页面可见性（Page Visibility）API 可以有哪些用途？">
+<meta name="twitter:description" content="CSS中有个有用且有趣且个人比较喜欢的属性 – visibility. 其有两个常用属性值：hidden与visible. 分别表示不可见与可见。OK，本文所说的API中也有Visibility这个单词，那他们表意一致？ 回答是：YES! //众人：妹啊，你以为是中国达人秀啊！">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -61,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>HTML5的离线储存怎么使用，工作原理能不能解释一下？ | 华哥技术博客</title>
+<title>页面可见性（Page Visibility）API 可以有哪些用途？ | 华哥技术博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -257,10 +252,10 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-16" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/03/2/" class="article-date">
+      <a href="/2015/12/03/16/" class="article-date">
       <time datetime="2015-12-02T16:00:00.000Z" itemprop="datePublished">2015-12-03</time>
 </a>
 
@@ -276,7 +271,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HTML5的离线储存怎么使用，工作原理能不能解释一下？
+      页面可见性（Page Visibility）API 可以有哪些用途？
     </h1>
   
 
@@ -297,62 +292,88 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>大家都知道Web App是通过浏览器来访问的，所以离线状态下是无法使用app的。其中web app中的一些资源并不经常改变，不需要每次都向服务器发送请求。这时应运而生的离线缓存就显得尤为突出。通过吧需要离线缓存储的文件列在一个manifest配置文件中。酱紫在离线情况下也可以使用app。<a id="more"></a></excerpt></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>使用方法</p>
-<p>只要在头部加一个manifest属性就ok了</p>
-<p>1 &lt;!DOCTYPE HTML&gt;<br>2 <html manifest="cache.manifest"><br>3 …<br>4 </html><br>然后cache.manifest文件的书写方式如下：</p>
-<p>复制代码<br>CACHE MANIFEST</p>
-<p>#v0.11</p>
-<p>CACHE:</p>
-<p>js/app.js<br>css/style.css</p>
-<p>NETWORK:<br>resourse/logo.png</p>
-<p>FALLBACK:<br>/ /offline.html<br>复制代码<br>代码说明：</p>
-<p>离线存储的manifest一般由三个部分组成:<br>1.CACHE:表示需要离线存储的资源列表，由于包含manifest文件的页面将被自动离线存储，所以不需要把页面自身也列出来。<br>2.NETWORK:表示在它下面列出来的资源只有在在线的情况下才能访问，他们不会被离线存储，所以在离线情况下无法使用这些资源。不过，如果在CACHE和NETWORK中有一个相同的资源，那么这个资源还是会被离线存储，也就是说CACHE的优先级更高。<br>3.FALLBACK:表示如果访问第一个资源失败，那么就使用第二个资源来替换他，比如上面这个文件表示的就是如果访问根目录下任何一个资源失败了，那么就去访问offline.html。</p>
-<p>更新于2016.9.23</p>
-<p>前言：<br>使用HTML5，通过创建cache manifest文件，可轻松创建web应用的离线版本。</p>
-<p>HTML5引入了应用程序缓存，这意味着web应用可进行缓存，并可在没有网络时进行访问。</p>
-<p>应用程序缓存为应用带来三个优势：</p>
-<p>　　离线浏览–用户可在离线时使用它们。</p>
-<p>　　速度–已经缓存的资源加载得更快。</p>
-<p>　　减少服务器负载–浏览器将只从服务器下载更改过的资源。</p>
-<p>原理和环境<br>　　如上面提到的HTML5的离线存储是基于一个新建的.appcache文件的，通过这个文件上的解析清单离线存储资源，这些资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。</p>
-<p>就像cookie一样，html5的离线存储也需要服务器环境。<br>这里提供一个小工具——简易iis服务器，把它放在项目更目录下，双击运行即可模拟服务器环境。<br>链接: <a href="http://pan.baidu.com/s/1jG86UV0" target="_blank" rel="external">http://pan.baidu.com/s/1jG86UV0</a> 密码: ja9h</p>
-<p>解析清单<br>在开始之前要先了解下manifest（即.appcache文件），上面的解析清单要怎么写。</p>
-<p>manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。</p>
-<p>manifest 文件可分为三个部分：</p>
-<p>CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存<br>NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存<br>FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）<br>在线的情况下,用户代理每次访问页面，都会去读一次manifest.如果发现其改变, 则重新加载全部清单中的资源。</p>
-<p>CACHE MANIFEST</p>
-<p>第一行，CACHE MANIFEST，是必需的：</p>
-<p>1 CACHE MANIFEST / theme.css /logo.gif / main.js<br>　　上面的 manifest 文件列出了三个资源：一个 CSS 文件，一个 GIF 图像，以及一个 JavaScript 文件。当 manifest 文件加载后，浏览器会从网站的根目录下载这三个文件。然后，无论用户何时与因特网断开连接，这些资源依然是可用的。</p>
-<p>NETWORK</p>
-<p>白名单，使用通配符”*”. 则会进入白名单的open状态. 这种状态下.所有不在相关Cache区域出现的url都默认使用HTTP相关缓存头策略.</p>
-<p>下面的 NETWORK 小节规定文件 “login.asp” 永远不会被缓存，且离线时是不可用的：</p>
-<p>1 NETWORK: login.asp<br>可以使用*来指示所有其他资源/文件都需要因特网连接：</p>
-<p>NETWORK: *<br>FALLBACK</p>
-<p>下面的 FALLBACK 小节规定如果无法建立因特网连接，则用 “offline.html” 替代 /html5/ 目录中的所有文件：</p>
-<p>ALLBACK：/html5/ /404.html<br>注释：第一个 URI 是资源，第二个是替补。</p>
-<p>更新缓存</p>
-<p>一旦应用被缓存，它就会保持缓存直到发生下列情况：</p>
-<p>用户清空浏览器缓存<br>manifest 文件被修改<br>由程序来更新应用缓存<br>Demo<br>case/ |– index.html | |– demo.appcache | |– 简易IIS服务器.exe | <code>-- image |-- 01.jpg</code>– 02.jpg<br>index.html</p>
-<p>复制代码<br>&lt;!DOCTYPE html&gt; </p>
-<p><html lang="en" manifest="demo.appcache"> </html></p>
-<p><head><br>    <meta charset="UTF-8"><br>    <title>HTML5离线存储</title><br></head> </p>
-<p><body><br>    <img src="image/01.jpg" alt=""><br>    <img src="image/02.jpg" alt=""><br></body><br><br>复制代码<br>demo.appcache</p>
-<p>CACHE MANIFEST #v01 image/01.jpg   NETWORK:*FALLBACK: /<br>image文件夹下存储着<br>01.jpg</p>
-<p>02.jpg</p>
-<p>好接着执行简易IIS服务器.exe试试看吧。<br>当iis开启时</p>
-<p>当iis关闭时（是关闭，暂停看不出效果）</p>
-<p>可以看见图片1成功被离线展示出来了，图片2像正常情况一样显示不出来。</p>
-<p>现在我想把图片2和图片1的位置换一下呢.</p>
-<p><body><br>    <img src="image/02.jpg" alt=""><br>    <img src="image/01.jpg" alt=""><br></body><br>这时候发现问题来了，html明明修改了为什么图片没有置换过来呢，我不是在demo.appcache文件的NETWORK写了星号吗?除了CACHE MANIFEST文件其它都采用在线模式。查资料得知：引入manifest的页面,即使没有被列入缓存清单中，仍然会被用户代理缓存。<br>好吧，那我把.appcache文件更新下，于是乎把头部的版本号修改一下#v02。刷新下页面还是没反应！再刷新，有了！为什么？</p>
-<p>　　对于浏览器来说,manifest的加载是要晚于其他资源的. 这就导致check manifest的过程是滞后的.发现manifest改变.所有浏览器的实现都是紧随这做静默更新资源.以保证下次pv,应用到更新.</p>
-<p>通过控制台我们能够窥探一二：</p>
-<p>第一次刷新，应用程序缓存更新准备事件,</p>
-<p>第二次刷新才会看到效果。</p>
-<p>缓存立即执行<br>我们的产品已经更新了用户却要第二次进来才能够看到，这样用户体验也太差了吧，有什么方式能够解决呢？好在html5给javascript提供了相关的API。</p>
-<p>API篇幅太多自行查看把，这里我晒下我测试成功的code：</p>
-<p>复制代码<br> 1 /<em>code1,简单粗暴的</em>/<br> 2 applicationCache.onupdateready = function(){<br> 3 　　applicationCache.swapCache();<br> 4 　　location.reload();<br> 5 };<br> 6 /<em>code2，缓存公用方法</em>/<br> 7 // var EventUtil = {<br> 8 // addHandler: function(element, type, handler) {<br> 9 // if (element.addEventListener) {<br>10 // element.addEventListener(type, handler, false);<br>11 // } else if (element.attachEvent) {<br>12 // element.attachEvent(“on” + type, handler);<br>13 // } else {<br>14 // element[“on” + type] = handler;<br>15 // }<br>16 // }<br>17 // };<br>18 // EventUtil.addHandler(applicationCache, “updateready”, function() { //缓存更新并已下载，要在下次进入页面生效<br>19 // applicationCache.update(); //检查缓存manifest文件是否更新，ps:页面加载默认检查一次。<br>20 // applicationCache.swapCache(); //交换到新的缓存项中，交换了要下次进入页面才生效<br>21 // location.reload(); //重新载入页面<br>22 // });<br>复制代码<br>code1一般用在页面加载时直接触发，而code2的方式可后期检查更新。</p>
-<p>注意事项<br>站点离线存储的容量限制是5M<br>如果manifest文件，或者内部列举的某一个文件不能正常下载，整个更新过程将视为失败，浏览器继续全部使用老的缓存<br>引用manifest的html必须与manifest文件同源，在同一个域下<br>在manifest中使用的相对路径，相对参照物为manifest文件<br>CACHE MANIFEST字符串应在第一行，且必不可少<br>系统会自动缓存引用清单文件的 HTML 文件<br>manifest文件中CACHE则与NETWORK，FALLBACK的位置顺序没有关系，如果是隐式声明需要在最前面<br>FALLBACK中的资源必须和manifest文件同源<br>当一个资源被缓存后，该浏览器直接请求这个绝对路径也会访问缓存中的资源。<br>站点中的其他页面即使没有设置manifest属性，请求的资源如果在缓存中也从缓存中访问<br>当manifest文件发生改变时，资源请求本身也会触发更新</p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>CSS中有个有用且有趣且个人比较喜欢的属性 – visibility. 其有两个常用属性值：hidden与visible. 分别表示不可见与可见。OK，本文所说的API中也有Visibility这个单词，那他们表意一致？</excerpt></p>
+<p>回答是：YES! //众人：妹啊，你以为是中国达人秀啊！<a id="more"></a></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>页面可见性API就是表示网页可见还是不可见的，巧的是，hidden与visible就是该API的两个状态值。</p>
+<p>举个通俗的例子：<br>如果你在xxxxx.com上浏览提神的图片，则当前你所看的这个网页的visibility就是visible.</p>
+<p>此时，如果你老妈子突然进来给你送香蕉，出现下图所示场景：<br>总是在看桌面</p>
+<p>则，此时之前提神的网页的visibility就是hidden – 最小化。</p>
+<p>或者老妈子进来的时候，切换到人民网，提神网页的visibility也是hidden – 切换选项卡。</p>
+<p> 老妈子送的香蕉<del>啦啦啦啦啦</del></p>
+<p>这就是页面可见性API的直观认识，至于其身上哪里有麻子，下面会指出.</p>
+<p>三、页面可见性API属性和事件<br>目前页面可见性API有两个属性，一个事件，如下：</p>
+<p>document.hidden: Boolean值，表示当前页面可见还是不可见<br>document.visibilityState: 返回当前页面的可见状态。<br>“hidden“<br>“visible“<br>“prerender” 这个表示纳尼呢~~恩，我也不确定，字面意思是“预渲染”。莫非指的是啪啪啪一下子开了很多个选项卡，之前选项卡依然在加载渲染的状态？或者说是浏览器新打开时记住的上一次关闭选项卡的状态？求达人指明！<br>“preview” 预览。根据部分2011年底相关国外部分文章的说法，这种状态出现在，如window7系统下，鼠标放在底部（一般是）任务栏的图标上（预览）的时候。见下截图：<br>win7鼠标图标程序界面预览 张鑫旭-鑫空间-鑫生活<br>但是根据自己的实际测试，似乎并没有这种状态的改变——包括IE10浏览器。可能是时代改变，一切都遵循规范了吧。因此，我们重点关注前面三个状态值就可以了。</p>
+<p>visibilitychange: 当可见状态改变时候触发的事件。<br>四、浏览器支持与私有前缀<br>我写了个如下的页面可见性API支持性的测试代码：</p>
+<p>var isPageVisibilitySupport = (function() {<br>    var support = false;<br>    if (typeof window.screenX === “number”) {<br>        [“webkit”, “moz”, “ms”, “o”, “”].forEach(function(prefix) {<br>            if (support == false &amp;&amp; document[prefix + (prefix? “H”: “h”) + “idden”] + “” !== “undefined”) {<br>                support = true;<br>            }<br>        });<br>    }<br>    return support;<br>})();<br>测试发现，如下浏览器都是支持的：</p>
+<p>Chrome 21<br>FireFox 16.0.2<br>Opera 12.11<br>IE10<br>不支持的浏览器：</p>
+<p>IE9<br>Safari 5.1<br>因此，typeof document.msHidden != “undefined”可以用来区分IE9浏览器还是IE10浏览器。</p>
+<p>正如上面的code所展示的，页面可见性API的所有属性以及事件，目前是需要使用私有前缀的（如果没有这些前缀，浏览器就不认识这些属性或方法了）。<br>一旦有了前缀，实际应用的时候代码就有些啰哩吧嗦了（可见参见文章底部参考文章中展示的代码）！</p>
+<p>因为要一个前缀一个前缀判断——oh, my!  我这个懒人最不喜欢这等麻烦事了，于是，捞起袖子，啪啪啪啪整个一个兼容性的Page Visibility API相关对象，正好包含API中的两个属性以及一个事件。完整代码如下（节省篇幅，滚动显示<br>）：</p>
+<p>var pageVisibility = (function() {<br>    var prefixSupport, keyWithPrefix = function(prefix, key) {<br>        if (prefix !== “”) {<br>            // 首字母大写<br>            return prefix + key.slice(0,1).toUpperCase() + key.slice(1);<br>        }<br>        return key;<br>    };<br>    var isPageVisibilitySupport = (function() {<br>        var support = false;<br>        if (typeof window.screenX === “number”) {<br>            [“webkit”, “moz”, “ms”, “o”, “”].forEach(function(prefix) {<br>                if (support == false &amp;&amp; document[keyWithPrefix(prefix, “hidden”)] != undefined) {<br>                    prefixSupport = prefix;<br>                    support = true;<br>                }<br>            });<br>        }<br>        return support;<br>    })();</p>
+<pre><code>var isHidden = function() {
+    if (isPageVisibilitySupport) {
+        return document[keyWithPrefix(prefixSupport, &quot;hidden&quot;)];
+    }
+    return undefined;
+};
+
+var visibilityState = function() {
+    if (isPageVisibilitySupport) {
+        return document[keyWithPrefix(prefixSupport, &quot;visibilityState&quot;)];
+    }
+    return undefined;
+};
+
+return {
+    hidden: isHidden(),
+    visibilityState: visibilityState(),
+    visibilitychange: function(fn, usecapture) {
+        usecapture = undefined || false;
+        if (isPageVisibilitySupport &amp;&amp; typeof fn === &quot;function&quot;) {
+            return document.addEventListener(prefixSupport + &quot;visibilitychange&quot;, function(evt) {
+                this.hidden = isHidden();
+                this.visibilityState = visibilityState();
+                fn.call(this, evt);
+            }.bind(this), usecapture);
+        }
+        return undefined;
+    }
+};    
+</code></pre><p>})(undefined);<br>或者直接调用：</p>
+<p><script src="http://www.zhangxinxu.com/study/201211/pageVisibility.js"></script><br>其中具体细节无需关心，实际上上面这么多代码本质上就是下面这点：</p>
+<p>var pageVisibility = {<br>    hidden: Boolean<br>    visibilityState: String<br>    visibilitychange: Function<br>};<br>与<em>原生属性事件</em>对应关系如下：</p>
+<p>pageVisibility.hidden === document.hidden（兼容处理）<br>pageVisibility.visibilityState=== document.visibilityState（兼容处理）<br>pageVisibility.visibilitychange(function() { /<em> this指的就是pageVisibility </em>/ }); === document.addEventListener(“visibilitychange”, function() {});（兼容处理）<br>于是，要判断一个浏览器是否支持页面可见性API如下代码就可以了（无需什么webkit或moz或ms等前缀一个个判断了）：</p>
+<p>var isSupport = typeof pageVisibility.hidden !== “undefined”<br>测试demo<br>您可以狠狠地点击这里：兼容性的网页可见性API属性与事件demo</p>
+<p>网页可见性 API基本属性与事件实例页面截图 张鑫旭-鑫空间-鑫生活</p>
+<p>对于不支持的浏览器，如IE9浏览器，显示的则是”undefined“：<br>不支持网页可见性API浏览器显示undefined  张鑫旭-鑫空间-鑫生活</p>
+<p>OK，万屎具备，只欠草纸了！下面，看看，页面可见性API都有些可以有的实际应用。</p>
+<p>//zxx: 下面为广告<del>注意不要勿点</del>嘻嘻~~</p>
+<p>五、页面可见性API实际应用<br>先来看看老外给的一个例子，我觉得很有实际应用价值的。</p>
+<p>首先是链接地址：<a href="http://www.samdutton.com/pageVisibility/" target="_blank" rel="external">http://www.samdutton.com/pageVisibility/</a> //zxx: 希望不要明年这个时候被墙掉</p>
+<p>进去后，会有一个HTML5 video显示的Google Chrome浏览器广告的30秒funny视频，如下图所示：<br>视频截图</p>
+<p>直接浏览你是看不出什么玄乎的，请切换一个选项卡，让该页面置于后面，结果，您会发现这个选项卡的标题栏变成了这样：<br>标题栏显示视频暂停以及暂停时间</p>
+<p>看出来没？视频播放被中断了——当page不可见的时候，视频会自动暂停！</p>
+<p>此时，您再进入该选项卡，视频又从刚才的地方继续播放了，如下截图：<br>页面可见视频继续播放 张鑫旭-鑫空间-鑫生活</p>
+<p>个人愚见，国内的一些视频站点是不是可以应用下这个API呢！这样当妈妈进来送香蕉的时候，直接win+D显示桌面就可以了，声音啊什么的会自动关掉，振奋视频自动暂停，多赞的一个功能啊！以前的暂停视频+最小化浏览器直接变成了一步→最小化，节约了大量的宝贵时间，极大了提升了用户体验，恩！不错！！</p>
+<p>上面的例子毕竟长在外人田啊，一旦建起了围墙就看不到了，因此，自己折腾了一个简单的10秒钟低质量的猫猫版本。//zxx: 上面例子视频3M+，我估算了下，1000次访问的话，我勒个去，差不多3个G的流量去了，我现在每月流量都岌岌可危，因此，大家将就下下这个百来K的视频（Chrome浏览器以及IE10下可访问，或者谁给我尺寸小一点的ogv格式任意视频，让FireFox也能OK）~~</p>
+<p>您可以狠狠地点击这里：10秒钟妈妈来自动暂停视频demo</p>
+<p>操作同上，进入页面播放，离开页面暂停。<br>Chrome浏览器下效果截图 张鑫旭-鑫空间-鑫生活</p>
+<p>登录同步<br>这是我想的一个觉得蛮实用的应用。有如下场景：</p>
+<ol>
+<li>去淘宝买东西，未登录状态下，进入首页。</li>
+<li>然后新窗口打开任意页面，登录并成功返回。<br>淘宝网成功登录 张鑫旭-鑫空间-鑫生活</li>
+<li>再次访问刚才打开的首页，发现页面还是未登录状态（见下图），实际上用户已经登录了。<br>之前的首页仍然是未登录状态</li>
+</ol>
+<p>目前，这种状态大家似乎习以为常，觉得很OK，实际上这种糟糕的。就像没有空调的岁月里，人们觉得风扇很OK啊；但是，现在呢，还有谁屋顶吊个风扇吗！！有了页面可见性API，我们可以把体验做地更好。</p>
+<p>您可以狠狠地点击这里：网页可见性API与登录同步demo</p>
+<p>不出意外，您默认进来应该是提示你登录的：</p>
+<p>点击上图所示的“登录”文字链接，会在新窗口无刷新登录。任意用户名和密码，成功后再回到之前提示的登录页面，已经变成了：“欢迎回来，某某某”了！</p>
+<p>只要该页面不被关闭，你怎样刷新，都是“欢迎回来，某某某”。不过，在实际应用中，检测到已经登录成功，直接刷新当前页面的居多！IE10下，貌似本地存储无法同源不同页面共享，这使得通过HTML5本地存储共享信息的做法遇到了些许阻碍。</p>
+<p>精确的在线时长<br>这个不用多说，只有用户当前这个页面可见的时候，才计算在线时间，这样可以避免挂机的情况，时长计算更准确（这个可能不是个好idea）。</p>
+<p>在线聊天离开状态<br>网页聊天的时候，可以知道用户是否“离开”还是“离线”还是“下线”。当前页面不可见，但连接还在的时候，我们可以确定该人是离开的（涉及隐私，可能也不是个好idea）。</p>
+<p>以及其他些应用需求<br>等到了实际需求的时候，就会想到页面可见性API，看看能不能渐进增加下用户体验等。</p>
+<p>六、结语<br>脑细胞不够用了，肯定还有很多现有的可以应用在实际项目中的idea的，一时想不出——恩，比方说，每次用户切换到你这个页面上的时候，logo抖一下，或页面一道亮光闪过，后者欢迎语之类……总之，是个很有用很有趣的API.</p>
+<p>此API支持日趋稳定，不会有被去除的可能，因此，大伙儿可以放心大胆尝试之……因为是新东西，您的任何小小idea都会是首创，领先的创造者——开动你的脑筋，发挥你的创造性思维，让我们的网页更加生动多彩吧！</p>
 
       
     </div>
@@ -361,13 +382,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/12/03/2/">HTML5的离线储存怎么使用，工作原理能不能解释一下？</a></p>
+        <p><span>本文标题:</span><a href="/2015/12/03/16/">页面可见性（Page Visibility）API 可以有哪些用途？</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></p>
         <p><span>发布时间:</span>2015-12-03, 00:00:00</p>
-        <p><span>最后更新:</span>2017-07-13, 21:18:47</p>
+        <p><span>最后更新:</span>2017-07-13, 21:35:57</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/12/03/2/" title="HTML5的离线储存怎么使用，工作原理能不能解释一下？">http://yoursite.com/2015/12/03/2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/12/03/2/　　作者: 华哥说总结和分享都是好东西" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/12/03/16/" title="页面可见性（Page Visibility）API 可以有哪些用途？">http://yoursite.com/2015/12/03/16/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/12/03/16/　　作者: 华哥说总结和分享都是好东西" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -380,15 +401,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/12/03/17/">
-                    如何在页面上实现一个圆形的可点击区域？
+                <a href="/2015/12/03/15/">
+                    如何实现浏览器内多个标签页之间的通信? (阿里)
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/12/03/3/">
-                    简述一下你对HTML语义化的理解？
+                <a href="/2015/12/03/17/">
+                    如何在页面上实现一个圆形的可点击区域？
                 </a>
             </div>
         
@@ -436,7 +457,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HTML5的离线储存怎么使用，工作原理能不能解释一下？　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"页面可见性（Page Visibility）API 可以有哪些用途？　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -456,7 +477,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/12/03/17/" title="上一篇: 如何在页面上实现一个圆形的可点击区域？">
+            <a href="/2015/12/03/15/" title="上一篇: 如何实现浏览器内多个标签页之间的通信? (阿里)">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -464,7 +485,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/12/03/3/" title="下一篇: 简述一下你对HTML语义化的理解？">
+            <a href="/2015/12/03/17/" title="下一篇: 如何在页面上实现一个圆形的可点击区域？">
                 <i class="fa fa-angle-right"></i>
             </a>
         
