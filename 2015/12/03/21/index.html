@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="CSS的specificity特性或非凡性，它是一个衡量css优先级的一个标准， 既然的标准就有判定规定和计算方式，specificity用一个四位数来表示， 更像四级从左到右，左的最大级，一级大于一级，数位之间没有进制， 多个选择符用到同一个元素上时那么specificity上值高的最终获得优先级。">
+<meta name="description" content="1、块状元素水平居中： margin-left=auto；margin-right=auto；">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS优先级算法如何计算？">
-<meta property="og:url" content="http://yoursite.com/2015/12/03/20/index.html">
+<meta property="og:title" content="块状元素居中&#x2F;浮动元素居中&#x2F;绝对定位元素居中&#x2F;内容居中">
+<meta property="og:url" content="http://yoursite.com/2015/12/03/21/index.html">
 <meta property="og:site_name" content="华哥技术博客">
-<meta property="og:description" content="CSS的specificity特性或非凡性，它是一个衡量css优先级的一个标准， 既然的标准就有判定规定和计算方式，specificity用一个四位数来表示， 更像四级从左到右，左的最大级，一级大于一级，数位之间没有进制， 多个选择符用到同一个元素上时那么specificity上值高的最终获得优先级。">
-<meta property="og:updated_time" content="2017-07-13T14:54:44.182Z">
+<meta property="og:description" content="1、块状元素水平居中： margin-left=auto；margin-right=auto；">
+<meta property="og:updated_time" content="2017-07-13T15:06:40.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS优先级算法如何计算？">
-<meta name="twitter:description" content="CSS的specificity特性或非凡性，它是一个衡量css优先级的一个标准， 既然的标准就有判定规定和计算方式，specificity用一个四位数来表示， 更像四级从左到右，左的最大级，一级大于一级，数位之间没有进制， 多个选择符用到同一个元素上时那么specificity上值高的最终获得优先级。">
+<meta name="twitter:title" content="块状元素居中&#x2F;浮动元素居中&#x2F;绝对定位元素居中&#x2F;内容居中">
+<meta name="twitter:description" content="1、块状元素水平居中： margin-left=auto；margin-right=auto；">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>CSS优先级算法如何计算？ | 华哥技术博客</title>
+<title>块状元素居中/浮动元素居中/绝对定位元素居中/内容居中 | 华哥技术博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -252,10 +252,10 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-20" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-21" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/03/20/" class="article-date">
+      <a href="/2015/12/03/21/" class="article-date">
       <time datetime="2015-12-02T16:00:00.000Z" itemprop="datePublished">2015-12-03</time>
 </a>
 
@@ -271,7 +271,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CSS优先级算法如何计算？
+      块状元素居中/浮动元素居中/绝对定位元素居中/内容居中
     </h1>
   
 
@@ -292,17 +292,41 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>CSS的specificity特性或非凡性，它是一个衡量css优先级的一个标准，</excerpt></p>
-<p>既然的标准就有判定规定和计算方式，specificity用一个四位数来表示，</p>
-<p>更像四级从左到右，左的最大级，一级大于一级，数位之间没有进制，</p>
-<p>多个选择符用到同一个元素上时那么specificity上值高的最终获得优先级。<a id="more"></a></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>规则</p>
-<p>1、行内样式优先级specificity值为1,0,0,0 高于外部定义</p>
-<p>　　如<div style="height:50px; width:50px;">Div</div>  //行内样式</p>
-<p>　　外部定义指经由<link>或<style>标签定义的规则                                                    </p>
-<p>2、按CSS代码中出现的顺序决定，后者CSS样式居上；（近水楼台 先得月）</p>
-<p>3、!important声明specificity值优先级最高</p>
-<p>4、由继续而得到的样式没有specificity的计算，它低于一切其他规则（比如全局选择符*定义规则）</p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>1、块状元素水平居中：</excerpt></p>
+<p>margin-left=auto；margin-right=auto；</p>
+<a id="more"></a>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>2、浮动块状元素水平居中：</p>
+<p>外包装块“float：left；position：relative；left：50%”；</p>
+<p>内部块“float：left；position：relative；right：50%”</p>
+<p>3、内容居中：</p>
+<p>内联元素：text-align:center；vertical-align:middle</p>
+<p>块状元素：</p>
+<p>display:table-cell;vertical-align:middle; </p>
+<p>若是单行内容：line-height=height</p>
+<p>4、绝对定位元素垂直水平居中：</p>
+<p>方法1：</p>
+<p>.element {</p>
+<p>   width: 600px; height: 400px;</p>
+<p>   position: absolute; left: 50%; top: 50%;</p>
+<p>   margin-top: -200px;    /<em> 高度的一半 </em>/</p>
+<p>   margin-left: -300px;    /<em> 宽度的一半 </em>/</p>
+<p>}</p>
+<p>但这种方法优点是兼容性较好，缺点是需要提前知道元素的尺寸，否则margin负值的调整无法精确。此时，往往要借助js获得。</p>
+<p>方法2：使用CSS3</p>
+<p>css3的兴起，使得有了更好的解决方法，就是使用transform代替margin. transform中translate偏移的百分比值是相对于自身大小的，无需提前知道元素尺寸，其都是水平垂直居中显示的。但此方法兼容性不好。</p>
+<p>.element {</p>
+<p>   width: 600px; height: 400px;</p>
+<p>   position: absolute; left: 50%; top: 50%;</p>
+<p>   transform: translate(-50%, -50%);   /<em> 第一个50%为width的一半，第二个50%为height的一半 </em>/</p>
+<p>}</p>
+<p>方法3：上下左右均0位置定位+“margin: auto”（推荐做法！）</p>
+<p>.element {</p>
+<p>   width: 600px; height: 400px;</p>
+<p>   position: absolute; left: 0; top: 0; right: 0; bottom: 0;</p>
+<p>   margin: auto;    /<em> 水平和垂直都居中 </em>/</p>
+<p>}</p>
+<p>若只设置“margin-left:auto”+“margin-right:auto”,则仅水平居中；</p>
+<p>若只设置“margin-top:auto”+“margin-bottom:auto”,则仅垂直居中；</p>
 <p>算法： </p>
 <p>当遇到多个选择符同时出现时候<br>按选择符得到的Specificity值逐位相加，<br>{数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0}<br>就得到最终计算得的specificity，<br>然后在比较取舍时按照从左到右的顺序逐位比较。 </p>
 <p>实例分析： </p>
@@ -311,7 +335,7 @@
 <p>3.div .sjweb{ font-size:12px;}<br>分析：<br>1个元素{ div }，Specificity值为0,0,0,1<br>1个类选择符{.sjweb}，Specificity值为0,0,1, 0<br>最终：Specificity值为 0,0,1,1 </p>
 <p>4.Div # sjweb { font-size:12px;}<br>分析：<br>1个元素{ div }，Specificity值为0,0,0,1<br>1个类选择符{.sjweb}，Specificity值为0,1,0, 0<br>最终：Specificity值为 0,1,0,1 </p>
 <p>5.html &gt; body div [id=”totals”] ul li &gt; p {color:red;}<br>分析：<br>6个元素{ html body div ul li p} Specificity值为0,0,0,6<br>1个属性选择符{ [id=”totals”] } Specificity值为0,0,1,0<br>2个其他选择符{ &gt; &gt; } Specificity值为0,0,0,0<br>最终：Specificity值为 0,0,1,6 </p>
-</style></p>
+
       
     </div>
     
@@ -319,13 +343,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/12/03/20/">CSS优先级算法如何计算？</a></p>
+        <p><span>本文标题:</span><a href="/2015/12/03/21/">块状元素居中/浮动元素居中/绝对定位元素居中/内容居中</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></p>
         <p><span>发布时间:</span>2015-12-03, 00:00:00</p>
-        <p><span>最后更新:</span>2017-07-13, 22:54:44</p>
+        <p><span>最后更新:</span>2017-07-13, 23:06:40</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/12/03/20/" title="CSS优先级算法如何计算？">http://yoursite.com/2015/12/03/20/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/12/03/20/　　作者: 华哥说总结和分享都是好东西" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/12/03/21/" title="块状元素居中/浮动元素居中/绝对定位元素居中/内容居中">http://yoursite.com/2015/12/03/21/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/12/03/21/　　作者: 华哥说总结和分享都是好东西" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -338,15 +362,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2015/12/03/19/">
-                    CSS选择符有哪些？哪些属性可以继承
+                <a href="/2015/12/03/20/">
+                    CSS优先级算法如何计算？
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2015/12/03/21/">
-                    块状元素居中/浮动元素居中/绝对定位元素居中/内容居中
+                <a href="/2015/12/03/22/">
+                    display有哪些值？说明他们的作用。
                 </a>
             </div>
         
@@ -394,7 +418,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"CSS优先级算法如何计算？　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"块状元素居中/浮动元素居中/绝对定位元素居中/内容居中　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -414,7 +438,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/12/03/19/" title="上一篇: CSS选择符有哪些？哪些属性可以继承">
+            <a href="/2015/12/03/20/" title="上一篇: CSS优先级算法如何计算？">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -422,7 +446,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/12/03/21/" title="下一篇: 块状元素居中/浮动元素居中/绝对定位元素居中/内容居中">
+            <a href="/2015/12/03/22/" title="下一篇: display有哪些值？说明他们的作用。">
                 <i class="fa fa-angle-right"></i>
             </a>
         

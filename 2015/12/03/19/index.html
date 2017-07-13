@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="简答：用正确的标签做正确的事情。">
+<meta name="description" content="1.id选择器（ # myid）    2.类选择器（.myclassname）    3.标签选择器（div, h1, p）    4.相邻选择器（h1 + p）    5.子选择器（ul &amp;gt; li）    6.后代选择器（li a）    7.通配符选择器（ * ）    8.属性选择器（a[rel = “external”]）    9.伪类选择器（a:hover, li:nth-ch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简述一下你对HTML语义化的理解？">
+<meta property="og:title" content="CSS选择符有哪些？哪些属性可以继承">
 <meta property="og:url" content="http://yoursite.com/2015/12/03/19/index.html">
 <meta property="og:site_name" content="华哥技术博客">
-<meta property="og:description" content="简答：用正确的标签做正确的事情。">
-<meta property="og:updated_time" content="2017-07-13T14:15:00.467Z">
+<meta property="og:description" content="1.id选择器（ # myid）    2.类选择器（.myclassname）    3.标签选择器（div, h1, p）    4.相邻选择器（h1 + p）    5.子选择器（ul &amp;gt; li）    6.后代选择器（li a）    7.通配符选择器（ * ）    8.属性选择器（a[rel = “external”]）    9.伪类选择器（a:hover, li:nth-ch">
+<meta property="og:updated_time" content="2017-07-13T14:45:30.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简述一下你对HTML语义化的理解？">
-<meta name="twitter:description" content="简答：用正确的标签做正确的事情。">
+<meta name="twitter:title" content="CSS选择符有哪些？哪些属性可以继承">
+<meta name="twitter:description" content="1.id选择器（ # myid）    2.类选择器（.myclassname）    3.标签选择器（div, h1, p）    4.相邻选择器（h1 + p）    5.子选择器（ul &amp;gt; li）    6.后代选择器（li a）    7.通配符选择器（ * ）    8.属性选择器（a[rel = “external”]）    9.伪类选择器（a:hover, li:nth-ch">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -33,7 +33,7 @@
 
 
 
-    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="shortcut icon" href="/img/avatar.png">
 
 
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>简述一下你对HTML语义化的理解？ | 华哥技术博客</title>
+<title>CSS选择符有哪些？哪些属性可以继承 | 华哥技术博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,7 +271,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      简述一下你对HTML语义化的理解？
+      CSS选择符有哪些？哪些属性可以继承
     </h1>
   
 
@@ -280,7 +280,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/HTML/">HTML</a>
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
     </div>
 
 
@@ -292,11 +292,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>简答：用正确的标签做正确的事情。<a id="more"></a></excerpt></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;<br>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;<br>搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;<br>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。<br>web前端面试题：谈一下你对HTML语义化的理解?</p>
-<p>深解：</p>
-<p>作为一个前端开发人员，你要是没有听说过 CSS，那你肯定是一个 “out-man” 。随着 CSS 的深入人心，结构、表现与行为的逐渐分离，HTML 语义化成了炙手可热的卖点。<br>语义化的 HTML 首先要强调 HTML 结构一个网页就好像一幢房子，HTML 结构就是钢筋混泥土的墙，一幢房子如果没有钢筋混泥土的墙那就是一堆废砖头，也就称不上是房子了。CSS 是装饰材料，是油漆，是用来装饰房子的。CSS 如果没有 HTML 结构那也就什么都不是了，没有了实际使用价值。CSS 完全依靠引用它的 (X)HTML 文档。如果你想使 CSS 的能力发挥到极致，提供一个既干净又有结构的 HTML 是非常必要的。<br>其实HTML 中的标签都有他自身的含义，只是常常被忽视——就像表格一直充当着网页布局的角色。还好随着 CSS 的重现江湖，表格也终于回到他的本质工作——列表数据。它会告诉我们说：“这行是一个标题;这几行组成了一个段落;这些文字是项目列表……”在做前端开发的时候要记住：HTML 告诉我们一块内容是什么(或其意义)，而不是它长的什么样子。</p>
-
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>1.id选择器（ # myid）<br>    2.类选择器（.myclassname）<br>    3.标签选择器（div, h1, p）<br>    4.相邻选择器（h1 + p）<br>    5.子选择器（ul &gt; li）<br>    6.后代选择器（li a）<br>    7.通配符选择器（ * ）<br>    8.属性选择器（a[rel = “external”]）<br>    9.伪类选择器（a:hover, li:nth-child）</excerpt></p>
+<ul>
+<li><p>可继承的样式： font-size font-family color, UL LI DL DD DT;</p>
+</li>
+<li><p>不可继承的样式：border padding margin width height ; </p>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2>
       
     </div>
     
@@ -304,12 +308,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2015/12/03/19/">简述一下你对HTML语义化的理解？</a></p>
+        <p><span>本文标题:</span><a href="/2015/12/03/19/">CSS选择符有哪些？哪些属性可以继承</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></p>
         <p><span>发布时间:</span>2015-12-03, 00:00:00</p>
-        <p><span>最后更新:</span>2017-07-13, 22:15:00</p>
+        <p><span>最后更新:</span>2017-07-13, 22:45:30</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2015/12/03/19/" title="简述一下你对HTML语义化的理解？">http://yoursite.com/2015/12/03/19/</a>
+            <span>原始链接:</span><a class="post-url" href="/2015/12/03/19/" title="CSS选择符有哪些？哪些属性可以继承">http://yoursite.com/2015/12/03/19/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/12/03/19/　　作者: 华哥说总结和分享都是好东西" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -331,7 +335,7 @@
         
             <div id="article-nav-older" class="article-nav-title">
                 <a href="/2015/12/03/20/">
-                    简述一下你对HTML语义化的理解？
+                    CSS优先级算法如何计算？
                 </a>
             </div>
         
@@ -379,7 +383,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"简述一下你对HTML语义化的理解？　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"CSS选择符有哪些？哪些属性可以继承　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -407,13 +411,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/12/03/20/" title="下一篇: 简述一下你对HTML语义化的理解？">
+            <a href="/2015/12/03/20/" title="下一篇: CSS优先级算法如何计算？">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/4/">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/11/">请描述一下 cookies，sessionStorage 和 localStorage 的区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/12/">Label的作用是什么？是怎么用的？（加 for 或 包裹）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/13/">HTML5的form如何关闭自动完成功能？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/14/">Git使用以及远程仓库连接</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/15/">如何实现浏览器内多个标签页之间的通信? (阿里)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/16/">页面可见性（Page Visibility）API 可以有哪些用途？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/17/">如何在页面上实现一个圆形的可点击区域？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/2/">HTML5的离线储存怎么使用，工作原理能不能解释一下？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/3/">简述一下你对HTML语义化的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/10/">浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/5/">常见的浏览器内核有哪些？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/7/">页面导入样式时，使用link和@import有什么区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/6/">介绍一下对浏览器内核的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/9/">行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/1/">HTML5 为什么只需要写 <!DOCTYPE HTML>？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/8/">Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/18/">网页验证码是干嘛的，是为了解决什么安全问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/19/">简述一下你对HTML语义化的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/20/">简述一下你对HTML语义化的理解？</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/5/">常见的浏览器内核有哪些？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/11/">请描述一下 cookies，sessionStorage 和 localStorage 的区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/12/">Label的作用是什么？是怎么用的？（加 for 或 包裹）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/13/">HTML5的form如何关闭自动完成功能？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/14/">Git使用以及远程仓库连接</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/15/">如何实现浏览器内多个标签页之间的通信? (阿里)</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/16/">页面可见性（Page Visibility）API 可以有哪些用途？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/17/">如何在页面上实现一个圆形的可点击区域？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/2/">HTML5的离线储存怎么使用，工作原理能不能解释一下？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/3/">简述一下你对HTML语义化的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/4/">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/10/">浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/7/">页面导入样式时，使用link和@import有什么区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/6/">介绍一下对浏览器内核的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/9/">行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/1/">HTML5 为什么只需要写 <!DOCTYPE HTML>？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/8/">Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/18/">网页验证码是干嘛的，是为了解决什么安全问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/19/">CSS选择符有哪些？哪些属性可以继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/20/">CSS优先级算法如何计算？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/21/">块状元素居中/浮动元素居中/绝对定位元素居中/内容居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/22/">display有哪些值？说明他们的作用。</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/23/">常见兼容性问题？</a></li></ul>
 
 
 
