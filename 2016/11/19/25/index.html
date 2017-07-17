@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="总结和分享都是好东西">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="2011 年，Twitter 出了一个问题：当滚动 Twitter 摘要时，页面变的很卡甚至无响应。John Resig 写了一篇关于这个问题的博客，解释了直接将耗时的函数绑定在 scroll 事件上是一个多么糟糕的想法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debouncing（防抖动）">
+<meta property="og:url" content="http://yoursite.com/2016/11/19/25/index.html">
 <meta property="og:site_name" content="技术博客-Mr.Chen">
-<meta property="og:description" content="总结和分享都是好东西">
-<meta property="og:updated_time" content="2017-07-13T13:27:52.103Z">
+<meta property="og:description" content="2011 年，Twitter 出了一个问题：当滚动 Twitter 摘要时，页面变的很卡甚至无响应。John Resig 写了一篇关于这个问题的博客，解释了直接将耗时的函数绑定在 scroll 事件上是一个多么糟糕的想法。">
+<meta property="og:updated_time" content="2017-07-17T14:31:27.117Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="总结和分享都是好东西">
+<meta name="twitter:title" content="Debouncing（防抖动）">
+<meta name="twitter:description" content="2011 年，Twitter 出了一个问题：当滚动 Twitter 摘要时，页面变的很卡甚至无响应。John Resig 写了一篇关于这个问题的博客，解释了直接将耗时的函数绑定在 scroll 事件上是一个多么糟糕的想法。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>tags | 技术博客-Mr.Chen</title>
+<title>Debouncing（防抖动） | 技术博客-Mr.Chen</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -66,7 +66,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-25" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2017-07-13T13:27:52.000Z" itemprop="datePublished">2017-07-13</time>
+      <a href="/2016/11/19/25/" class="article-date">
+      <time datetime="2016-11-18T16:00:00.000Z" itemprop="datePublished">2016-11-19</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      Debouncing（防抖动）
     </h1>
   
 
@@ -283,6 +283,10 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+    </div>
+
 
         
         <div class="clearfix"></div>
@@ -292,86 +296,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>2011 年，Twitter 出了一个问题：当滚动 Twitter 摘要时，页面变的很卡甚至无响应。John Resig 写了一篇关于这个问题的博客，解释了直接将耗时的函数绑定在 scroll 事件上是一个多么糟糕的想法。<a id="more"></a></excerpt></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>Debouncing 是解决这个问题的一种方法，它的做法是限制下次函数调用之前必须等待的时间间隔。正确实现 debouncing 的方法是将若干个函数调用 合成 一次，并在给定时间过去之后仅被调用一次。下面是一个原生 JavaScript 的实现，用到了作用域, 闭包, this, 和 计时事件：</p>
+<p>// 将会包装事件的 debounce 函数function debounce(fn, delay) {<br>  // 维护一个 timer<br>  let timer = null;<br>  // 能访问 timer 的闭包<br>  return function() {<br>    // 通过 ‘this’ 和 ‘arguments’ 获取函数的作用域和变量<br>    let context = this;<br>    let args = arguments;<br>    // 如果事件被调用，清除 timer 然后重新设置 timer<br>    clearTimeout(timer);<br>    timer = setTimeout(function() {<br>      fn.apply(context, args);<br>    }, delay);<br>  }}<br>这个函数 — 当传入一个事件（fn）时 — 会在经过给定的时间（delay）后执行。</p>
 
-
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/封装函数/">封装函数</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器/">浏览器</a><span class="category-list-count">1</span></li></ul>
-
-<p class="count"></p>
-
-<div class="tags">
-    
-</div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
-
-<!-- Count tags and categories -->
-<p id="count">
-        已有<span><script>document.write($(".category-list-item").length)</script></span>个分类，
-        共计<span><script>document.write($(".tags > a").length)</script></span>个标签
-</p>
-<script>
-    $('#count').appendTo('.count');
-</script>
-
-          
-        
       
     </div>
     
@@ -380,8 +308,48 @@
     
 
 
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/11/19/11/">
+                    请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2015/12/03/9/">
+                    行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+                </a>
+            </div>
+        
+    </nav>
+
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -399,7 +367,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"tags　| 技术博客-Mr.Chen　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Debouncing（防抖动）　| 技术博客-Mr.Chen　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -414,6 +382,26 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/11/19/11/" title="上一篇: 请描述一下 cookies，sessionStorage 和 localStorage 的区别？">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/12/03/9/" title="下一篇: 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/6/">介绍一下对浏览器内核的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/8/">Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/7/">页面导入样式时，使用link和@import有什么区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/5/">常见的浏览器内核有哪些？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/21/">块状元素居中/浮动元素居中/绝对定位元素居中/内容居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/4/">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/3/">简述一下你对HTML语义化的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/22/">display有哪些值？说明他们的作用。</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/23/">常见兼容性问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/2/">HTML5的离线储存怎么使用，工作原理能不能解释一下？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/19/">CSS选择符有哪些？哪些属性可以继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/18/">网页验证码是干嘛的，是为了解决什么安全问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/20/">CSS优先级算法如何计算？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/14/">Git使用以及远程仓库连接</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/17/">如何在页面上实现一个圆形的可点击区域？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/16/">页面可见性（Page Visibility）API 可以有哪些用途？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/15/">如何实现浏览器内多个标签页之间的通信? (阿里)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/24/">自己封装的常用函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/26/">浏览器是如何工作的？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/12/">Label的作用是什么？是怎么用的？（加 for 或 包裹）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/13/">HTML5的form如何关闭自动完成功能？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/1/">HTML5 为什么只需要写 <!DOCTYPE HTML>？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/10/">浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/11/">请描述一下 cookies，sessionStorage 和 localStorage 的区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/25/">Debouncing（防抖动）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/9/">行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</a></li></ul>
 
 
 

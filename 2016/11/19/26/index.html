@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="1.id选择器（ # myid）    2.类选择器（.myclassname）    3.标签选择器（div, h1, p）    4.相邻选择器（h1 + p）    5.子选择器（ul &amp;gt; li）    6.后代选择器（li a）    7.通配符选择器（ * ）    8.属性选择器（a[rel = “external”]）    9.伪类选择器（a:hover, li:nth-ch">
+<meta name="description" content="为什么要了解浏览器是如何工作的？？？想要写出一个最佳实践的页面，要实现性能优化，就要好好了解了解浏览器的工作原理。了解浏览器如何进行加载，可以在引用外部样式表文件、外部 JavaScript 文件时，将他们放到合适的位置，使浏览器以最快的速度及合理的顺序将文件加载完毕。了解浏览器如何进行解析，可以在构建 DOM 结构，组织 CSS 选择器时，选择最优的写法，提高浏览器的解析效率。了解浏览器如何进行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS选择符有哪些？哪些属性可以继承">
-<meta property="og:url" content="http://yoursite.com/2016/11/27/19/index.html">
+<meta property="og:title" content="浏览器是如何工作的？">
+<meta property="og:url" content="http://yoursite.com/2016/11/19/26/index.html">
 <meta property="og:site_name" content="技术博客-Mr.Chen">
-<meta property="og:description" content="1.id选择器（ # myid）    2.类选择器（.myclassname）    3.标签选择器（div, h1, p）    4.相邻选择器（h1 + p）    5.子选择器（ul &amp;gt; li）    6.后代选择器（li a）    7.通配符选择器（ * ）    8.属性选择器（a[rel = “external”]）    9.伪类选择器（a:hover, li:nth-ch">
-<meta property="og:updated_time" content="2017-07-15T03:08:51.209Z">
+<meta property="og:description" content="为什么要了解浏览器是如何工作的？？？想要写出一个最佳实践的页面，要实现性能优化，就要好好了解了解浏览器的工作原理。了解浏览器如何进行加载，可以在引用外部样式表文件、外部 JavaScript 文件时，将他们放到合适的位置，使浏览器以最快的速度及合理的顺序将文件加载完毕。了解浏览器如何进行解析，可以在构建 DOM 结构，组织 CSS 选择器时，选择最优的写法，提高浏览器的解析效率。了解浏览器如何进行">
+<meta property="og:updated_time" content="2017-07-17T15:14:06.908Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS选择符有哪些？哪些属性可以继承">
-<meta name="twitter:description" content="1.id选择器（ # myid）    2.类选择器（.myclassname）    3.标签选择器（div, h1, p）    4.相邻选择器（h1 + p）    5.子选择器（ul &amp;gt; li）    6.后代选择器（li a）    7.通配符选择器（ * ）    8.属性选择器（a[rel = “external”]）    9.伪类选择器（a:hover, li:nth-ch">
+<meta name="twitter:title" content="浏览器是如何工作的？">
+<meta name="twitter:description" content="为什么要了解浏览器是如何工作的？？？想要写出一个最佳实践的页面，要实现性能优化，就要好好了解了解浏览器的工作原理。了解浏览器如何进行加载，可以在引用外部样式表文件、外部 JavaScript 文件时，将他们放到合适的位置，使浏览器以最快的速度及合理的顺序将文件加载完毕。了解浏览器如何进行解析，可以在构建 DOM 结构，组织 CSS 选择器时，选择最优的写法，提高浏览器的解析效率。了解浏览器如何进行">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>CSS选择符有哪些？哪些属性可以继承 | 技术博客-Mr.Chen</title>
+<title>浏览器是如何工作的？ | 技术博客-Mr.Chen</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -256,11 +256,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-19" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-26" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/27/19/" class="article-date">
-      <time datetime="2016-11-26T16:00:00.000Z" itemprop="datePublished">2016-11-27</time>
+      <a href="/2016/11/19/26/" class="article-date">
+      <time datetime="2016-11-18T16:00:00.000Z" itemprop="datePublished">2016-11-19</time>
 </a>
 
 
@@ -275,7 +275,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CSS选择符有哪些？哪些属性可以继承
+      浏览器是如何工作的？
     </h1>
   
 
@@ -284,7 +284,7 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+    <a class="article-category-link" href="/categories/浏览器/">浏览器</a>
     </div>
 
 
@@ -296,15 +296,59 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><excerpt in="" index="" |="" 首页摘要=""><br>1.id选择器（ # myid）<br>    2.类选择器（.myclassname）<br>    3.标签选择器（div, h1, p）<br>    4.相邻选择器（h1 + p）<br>    5.子选择器（ul &gt; li）<br>    6.后代选择器（li a）<br>    7.通配符选择器（ * ）<br>    8.属性选择器（a[rel = “external”]）<br>    9.伪类选择器（a:hover, li:nth-child）</excerpt></p>
-<ul>
-<li><p>可继承的样式： font-size font-family color, UL LI DL DD DT;</p>
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>为什么要了解浏览器是如何工作的？？？<br>想要写出一个最佳实践的页面，要实现性能优化，就要好好了解了解浏览器的工作原理。<br>了解浏览器如何进行加载，可以在引用外部样式表文件、外部 JavaScript 文件时，将他们放到合适的位置，使浏览器以最快的速度及合理的顺序将文件加载完毕。<br>了解浏览器如何进行解析，可以在构建 DOM 结构，组织 CSS 选择器时，选择最优的写法，提高浏览器的解析效率。<br>了解浏览器如何进行渲染，明白渲染的过程，在设置元素属性，编写 JavaScript 文件时，可以减少 “reflow” “repaint” 的消耗。<a id="more"></a></excerpt></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><ol>
+<li>浏览器的主要功能及构成</li>
+</ol>
+<p>浏览器的主要功能 是将用户选择的 web 资源呈现出来，它需要从服务器请求资源，并将其显示在浏览器窗口中，资源的格式通常是 HTML，也包括 PDF、image 及其他格式。用户用 URI（Uniform Resource Identifier 统一资源标识符）来指定所请求资源的位置。</p>
+<p>浏览器的主要构成</p>
+<p>浏览器的主要组件包括：</p>
+<p>用户界面 － 包括地址栏、后退/前进按钮、书签目录等，也就是你所看到的除了用来显示你所请求页面的主窗口之外的其他部分。<br>浏览器引擎 － 用来查询及操作渲染引擎的接口。<br>渲染引擎 － 用来显示请求的内容，例如，如果请求内容为 html，它负责解析 html 及 css，并将解析后的结果显示出来。<br>网络 － 用来完成网络调用，例如 http 请求，它具有平台无关的接口，可以在不同平台上工作。<br>UI 后端 － 用来绘制类似组合选择框及对话框等基本组件，具有不特定于某个平台的通用接口，底层使用操作系统的用户接口。<br>JS 解释器 － 用来解释执行 JS 代码。<br>数据存储 － 属于持久层，浏览器需要在硬盘中保存类似 cookie 的各种数据，HTML5 定义了 web database 技术，这是一种轻量级完整的客户端存储技术。<br>浏览器主要组件</p>
+<ol>
+<li>浏览器的渲染</li>
+</ol>
+<p>2.1 渲染引擎简介<br>渲染引擎的职责就是渲染，即在浏览器窗口中显示所请求的内容。</p>
+<p>默认情况下，渲染引擎可以显示 html、xml 文档及图片，它也可以借助插件（一种浏览器扩展）显示其他类型数据，例如使用 PDF 阅读器插件，可以显示 PDF 格式，这里先不讨论插件及扩展，只讨论渲染引擎最主要的用途——显示应用了 CSS 之后的 html 及图片。</p>
+<p>2.2 渲染流程<br>渲染引擎基本流程</p>
+<p>渲染引擎首先通过网络获得所请求文档的内容，通常以 8K 分块的方式完成，即以 8K 每块下载 html 页面。</p>
+<p>然后解析页面生成 DOM 树，遇到 CSS 标签或 JS 脚本标签就新起线程去下载他们，并继续构建 DOM。</p>
+<p>CSS 下载完后解析为 CSS 规则树，浏览器结合 CSS 规则树和 DOM 树生成 Render Tree。Render Tree 由一些包含有颜色和大小等属性的矩形组成，它们将被按照正确的顺序显示到屏幕上。</p>
+<p>JavaScript 下载后可以通过 DOM API 修改 DOM，通过 CSSOM(CSS Object Model) API 修改样式作用域 Render Tree。注意：构建 CSSOM 会阻塞 JavaScript 的执行，JavaScript 的执行也会阻塞 DOM 的构建。</p>
+<p>每次修改会造成 Render Tree 的重新布局和重绘。只要修改 DOM 或修改了元素的形状或大小，就会触发 Reflow，单纯修改元素的颜色只需 Repaint 一下（调用操作系统 Native GUI 的 API 绘制）。</p>
+<p>Render Tree 构建好了之后，将会执行布局过程，它将确定每个节点在屏幕上的确切坐标。再下一步就是绘制，即遍历 Render Tree，并使用 UI 后端层绘制每个节点。也可用下图描述：</p>
+<p>渲染引擎基本流程</p>
+<p>值得注意的是，这个过程是逐步完成的，为了更好的用户体验，渲染引擎将会尽可能早的将内容呈现到屏幕上，并不会等到所有的 html 都解析完成之后再去构建和布局 Render Tree。它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容。</p>
+<p>2.3 reflow 与 repaint<br>现在再表述一下 HTML 页面加载和解析的流程：</p>
+<p>用户输入网址（假设是个 html 页面，并且是第一次访问），浏览器向服务器发出请求，服务器返回 html 文件；<br>浏览器开始载入 html 代码，发现 <head> 标签内有一个 <link> 标签引用外部 CSS 文件；<br>浏览器发出 CSS 文件的请求，服务器返回这个 CSS 文件；<br>浏览器继续载入 html 中 </head><body> 部分的代码，并且 CSS 文件已经拿到手了，可以开始渲染页面了；<br>浏览器在代码中发现一个 <img> 标签引用了一张图片，向服务器发出请求。此时浏览器不会等到图片下载完，而是继续渲染后面的代码；<br>服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排布，因此浏览器需要回过头来重新渲染这部分代码；<br>浏览器发现了一个包含一行 JavaScript 代码的 <script> 标签，赶快运行它；<br>JavaScript 脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个 <div> （style.display=”none”）。杯具啊，突然就少了这么一个元素，浏览器不得不重新渲染这部分代码；<br>终于等到了 </html> 的到来，浏览器泪流满面……<br>等等，还没完，用户点了一下界面中的“换肤”按钮，JavaScript 让浏览器换了一下 <link> 标签的 CSS 路径；<br>浏览器召集了在座的各位 <div><span><ul><li> 们，“大伙儿收拾收拾行李，咱得重新来过……”，浏览器向服务器请求了新的 CSS 文件，重新渲染页面。<br>页面为什么会慢？那是因为浏览器要花时间、花精力去渲染，尤其是当它发现某个部分发生了点变化影响了布局，需要倒回去重新渲染，我们称这个回退的过程叫 reflow。</p>
+<p>reflow 几乎是无法避免的。现在常见的一些效果，比如树状目录的折叠、展开（实质上是元素的显示与隐藏）等，都将引起浏览器的 reflow。鼠标滑过、点击等，只要这些行为引起了页面上某些元素的占位面积、定位方式、边距等属性的变化，都会引起它内部、周围甚至整个页面的重新渲染。通常我们都无法预估浏览器到底会 reflow 哪一部分的代码，它们都彼此相互影响着。</p>
+<p>reflow</p>
+<p>与 reflow 有个看上去差不多的术语叫 repaint (重绘)，如果只是改变了某个元素的背景颜色，文字颜色等，不影响元素周围或内部布局的属性，将只会引起浏览器的 repaint，重画某一部分。</p>
+<p>repaint</p>
+<p>2.4 引起 repaint 和 reflow 的一些操作<br>DOM Tree 里的每个结点都会有 reflow 方法，一个结点的 reflow 很有可能导致子结点，甚至父点以及同级结点的 reflow。在一些高性能的电脑上也许还没什么，但是如果 reflow 发生在手机上，那么这个过程是非常痛苦和耗电的。</p>
+<p>所以，下面这些动作有很大可能会是成本比较高的:</p>
+<p>当你增加、删除、修改 DOM 结点时；<br>当你移动 DOM 的位置，或是搞个动画的时候；<br>当你修改 CSS 样式的时候；<br>当你 Resize 窗口的时候（移动端没有这个问题），或是滚动的时候；<br>当你修改网页的默认字体时；<br>注：display:none 会触发 reflow，而 visibility:hidden 只会触发 repaint，因为没有发现位置变化。</p>
+<p>2.5 reflow 优化<br>reflow 是不可避免的，只能将 reflow 对性能的影响减到最小,给出下面几条建议：</p>
+<ol>
+<li>不要一条一条地修改 DOM 的样式。与其这样，还不如预先定义好 css 的 class，然后修改 DOM 的 className：</li>
+</ol>
+<p>// 不好的写法<br>var left = 10,<br>    top = 10;<br>elem.style.left = left + “px”;<br>elem.style.top  = top  + “px”;<br>// 推荐写法<br>elem.className += “ classname”;</p>
+<ol>
+<li>把 DOM 离线后修改。如：</li>
+</ol>
+<p>使用 DocumentFragment 对象在内存里操作 DOM。<br>先把 DOM 给 display:none (有一次 reflow)，然后你想怎么改就怎么改。比如修改 100 次，然后再把他显示出来。<br>clone 一个 DOM 节点到内存里，然后想怎么改就怎么改，改完后，和在线的那个的交换一下。</p>
+<ol>
+<li><p>不要把 DOM 节点的属性值放在一个循环里当成循环里的变量。不然这会导致大量地读写这个结点的属性。</p>
 </li>
-<li><p>不可继承的样式：border padding margin width height ; </p>
+<li><p>尽可能的修改层级比较低的 DOM节点。当然，改变层级比较低的 DOM节点有可能会造成大面积的 reflow，但是也可能影响范围很小。</p>
 </li>
-</ul>
-<a id="more"></a>
-<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2>
+<li><p>为动画的 HTML 元件使用 fixed 或 absoult 的 position，那么修改他们的 CSS 是会大大减小 reflow 。</p>
+</li>
+<li><p>千万不要使用 table 布局。因为可能很小的一个小改动会造成整个 table 的重新布局。</p>
+</li>
+</ol>
+<p>reflow 要比 repaint 更花费时间，因为 reflow 也会引发 repaint，也就更影响性能。所以在写代码的时候，要尽量避免过多的 reflow。</p>
+<p>以上这些仅是对浏览器工作原理的一个简单说明，大家如果对它感兴趣，可以继续搜索相关文章深入学习，因为我觉得理解浏览器的原理是很重要的，可以帮助我们写出性能更好的页面。</p>
+</script></body></p>
       
     </div>
     
@@ -316,15 +360,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/27/2/">
-                    HTML5的离线储存怎么使用，工作原理能不能解释一下？
+                <a href="/2016/11/19/24/">
+                    自己封装的常用函数
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/27/18/">
-                    网页验证码是干嘛的，是为了解决什么安全问题？
+                <a href="/2016/11/19/12/">
+                    Label的作用是什么？是怎么用的？（加 for 或 包裹）
                 </a>
             </div>
         
@@ -372,7 +416,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"CSS选择符有哪些？哪些属性可以继承　| 技术博客-Mr.Chen　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"浏览器是如何工作的？　| 技术博客-Mr.Chen　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -392,7 +436,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/27/2/" title="上一篇: HTML5的离线储存怎么使用，工作原理能不能解释一下？">
+            <a href="/2016/11/19/24/" title="上一篇: 自己封装的常用函数">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -400,7 +444,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/27/18/" title="下一篇: 网页验证码是干嘛的，是为了解决什么安全问题？">
+            <a href="/2016/11/19/12/" title="下一篇: Label的作用是什么？是怎么用的？（加 for 或 包裹）">
                 <i class="fa fa-angle-right"></i>
             </a>
         
