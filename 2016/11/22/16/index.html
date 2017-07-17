@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="华哥说总结和分享都是好东西" />
+
+
+
+<meta name="description" content="CSS中有个有用且有趣且个人比较喜欢的属性 – visibility. 其有两个常用属性值：hidden与visible. 分别表示不可见与可见。OK，本文所说的API中也有Visibility这个单词，那他们表意一致？ 回答是：YES! //众人：妹啊，你以为是中国达人秀啊！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="页面可见性（Page Visibility）API 可以有哪些用途？">
+<meta property="og:url" content="http://yoursite.com/2016/11/22/16/index.html">
+<meta property="og:site_name" content="华哥技术博客">
+<meta property="og:description" content="CSS中有个有用且有趣且个人比较喜欢的属性 – visibility. 其有两个常用属性值：hidden与visible. 分别表示不可见与可见。OK，本文所说的API中也有Visibility这个单词，那他们表意一致？ 回答是：YES! //众人：妹啊，你以为是中国达人秀啊！">
+<meta property="og:updated_time" content="2017-07-15T03:08:27.795Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="页面可见性（Page Visibility）API 可以有哪些用途？">
+<meta name="twitter:description" content="CSS中有个有用且有趣且个人比较喜欢的属性 – visibility. 其有两个常用属性值：hidden与visible. 分别表示不可见与可见。OK，本文所说的API中也有Visibility这个单词，那他们表意一致？ 回答是：YES! //众人：妹啊，你以为是中国达人秀啊！">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="华哥技术博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/avatar.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>页面可见性（Page Visibility）API 可以有哪些用途？ | 华哥技术博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">华哥说总结和分享都是好东西</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">文章分类</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/10412963@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端，努力往全栈发展，少年，加油！！！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">文章分类</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/10412963@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-16" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/22/16/" class="article-date">
+      <time datetime="2016-11-21T16:00:00.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      页面可见性（Page Visibility）API 可以有哪些用途？
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/HTML/">HTML</a>
+    </div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>CSS中有个有用且有趣且个人比较喜欢的属性 – visibility. 其有两个常用属性值：hidden与visible. 分别表示不可见与可见。OK，本文所说的API中也有Visibility这个单词，那他们表意一致？</excerpt></p>
+<p>回答是：YES! //众人：妹啊，你以为是中国达人秀啊！<a id="more"></a></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>页面可见性API就是表示网页可见还是不可见的，巧的是，hidden与visible就是该API的两个状态值。</p>
+<p>举个通俗的例子：<br>如果你在xxxxx.com上浏览提神的图片，则当前你所看的这个网页的visibility就是visible.</p>
+<p>此时，如果你老妈子突然进来给你送香蕉，出现下图所示场景：<br>总是在看桌面</p>
+<p>则，此时之前提神的网页的visibility就是hidden – 最小化。</p>
+<p>或者老妈子进来的时候，切换到人民网，提神网页的visibility也是hidden – 切换选项卡。</p>
+<p> 老妈子送的香蕉<del>啦啦啦啦啦</del></p>
+<p>这就是页面可见性API的直观认识，至于其身上哪里有麻子，下面会指出.</p>
+<p>三、页面可见性API属性和事件<br>目前页面可见性API有两个属性，一个事件，如下：</p>
+<p>document.hidden: Boolean值，表示当前页面可见还是不可见<br>document.visibilityState: 返回当前页面的可见状态。<br>“hidden“<br>“visible“<br>“prerender” 这个表示纳尼呢~~恩，我也不确定，字面意思是“预渲染”。莫非指的是啪啪啪一下子开了很多个选项卡，之前选项卡依然在加载渲染的状态？或者说是浏览器新打开时记住的上一次关闭选项卡的状态？求达人指明！<br>“preview” 预览。根据部分2011年底相关国外部分文章的说法，这种状态出现在，如window7系统下，鼠标放在底部（一般是）任务栏的图标上（预览）的时候。见下截图：<br>win7鼠标图标程序界面预览 张鑫旭-鑫空间-鑫生活<br>但是根据自己的实际测试，似乎并没有这种状态的改变——包括IE10浏览器。可能是时代改变，一切都遵循规范了吧。因此，我们重点关注前面三个状态值就可以了。</p>
+<p>visibilitychange: 当可见状态改变时候触发的事件。<br>四、浏览器支持与私有前缀<br>我写了个如下的页面可见性API支持性的测试代码：</p>
+<p>var isPageVisibilitySupport = (function() {<br>    var support = false;<br>    if (typeof window.screenX === “number”) {<br>        [“webkit”, “moz”, “ms”, “o”, “”].forEach(function(prefix) {<br>            if (support == false &amp;&amp; document[prefix + (prefix? “H”: “h”) + “idden”] + “” !== “undefined”) {<br>                support = true;<br>            }<br>        });<br>    }<br>    return support;<br>})();<br>测试发现，如下浏览器都是支持的：</p>
+<p>Chrome 21<br>FireFox 16.0.2<br>Opera 12.11<br>IE10<br>不支持的浏览器：</p>
+<p>IE9<br>Safari 5.1<br>因此，typeof document.msHidden != “undefined”可以用来区分IE9浏览器还是IE10浏览器。</p>
+<p>正如上面的code所展示的，页面可见性API的所有属性以及事件，目前是需要使用私有前缀的（如果没有这些前缀，浏览器就不认识这些属性或方法了）。<br>一旦有了前缀，实际应用的时候代码就有些啰哩吧嗦了（可见参见文章底部参考文章中展示的代码）！</p>
+<p>因为要一个前缀一个前缀判断——oh, my!  我这个懒人最不喜欢这等麻烦事了，于是，捞起袖子，啪啪啪啪整个一个兼容性的Page Visibility API相关对象，正好包含API中的两个属性以及一个事件。完整代码如下（节省篇幅，滚动显示<br>）：</p>
+<p>var pageVisibility = (function() {<br>    var prefixSupport, keyWithPrefix = function(prefix, key) {<br>        if (prefix !== “”) {<br>            // 首字母大写<br>            return prefix + key.slice(0,1).toUpperCase() + key.slice(1);<br>        }<br>        return key;<br>    };<br>    var isPageVisibilitySupport = (function() {<br>        var support = false;<br>        if (typeof window.screenX === “number”) {<br>            [“webkit”, “moz”, “ms”, “o”, “”].forEach(function(prefix) {<br>                if (support == false &amp;&amp; document[keyWithPrefix(prefix, “hidden”)] != undefined) {<br>                    prefixSupport = prefix;<br>                    support = true;<br>                }<br>            });<br>        }<br>        return support;<br>    })();</p>
+<pre><code>var isHidden = function() {
+    if (isPageVisibilitySupport) {
+        return document[keyWithPrefix(prefixSupport, &quot;hidden&quot;)];
+    }
+    return undefined;
+};
+
+var visibilityState = function() {
+    if (isPageVisibilitySupport) {
+        return document[keyWithPrefix(prefixSupport, &quot;visibilityState&quot;)];
+    }
+    return undefined;
+};
+
+return {
+    hidden: isHidden(),
+    visibilityState: visibilityState(),
+    visibilitychange: function(fn, usecapture) {
+        usecapture = undefined || false;
+        if (isPageVisibilitySupport &amp;&amp; typeof fn === &quot;function&quot;) {
+            return document.addEventListener(prefixSupport + &quot;visibilitychange&quot;, function(evt) {
+                this.hidden = isHidden();
+                this.visibilityState = visibilityState();
+                fn.call(this, evt);
+            }.bind(this), usecapture);
+        }
+        return undefined;
+    }
+};    
+</code></pre><p>})(undefined);<br>或者直接调用：</p>
+<p><script src="http://www.zhangxinxu.com/study/201211/pageVisibility.js"></script><br>其中具体细节无需关心，实际上上面这么多代码本质上就是下面这点：</p>
+<p>var pageVisibility = {<br>    hidden: Boolean<br>    visibilityState: String<br>    visibilitychange: Function<br>};<br>与<em>原生属性事件</em>对应关系如下：</p>
+<p>pageVisibility.hidden === document.hidden（兼容处理）<br>pageVisibility.visibilityState=== document.visibilityState（兼容处理）<br>pageVisibility.visibilitychange(function() { /<em> this指的就是pageVisibility </em>/ }); === document.addEventListener(“visibilitychange”, function() {});（兼容处理）<br>于是，要判断一个浏览器是否支持页面可见性API如下代码就可以了（无需什么webkit或moz或ms等前缀一个个判断了）：</p>
+<p>var isSupport = typeof pageVisibility.hidden !== “undefined”<br>测试demo<br>您可以狠狠地点击这里：兼容性的网页可见性API属性与事件demo</p>
+<p>网页可见性 API基本属性与事件实例页面截图 张鑫旭-鑫空间-鑫生活</p>
+<p>对于不支持的浏览器，如IE9浏览器，显示的则是”undefined“：<br>不支持网页可见性API浏览器显示undefined  张鑫旭-鑫空间-鑫生活</p>
+<p>OK，万屎具备，只欠草纸了！下面，看看，页面可见性API都有些可以有的实际应用。</p>
+<p>//zxx: 下面为广告<del>注意不要勿点</del>嘻嘻~~</p>
+<p>五、页面可见性API实际应用<br>先来看看老外给的一个例子，我觉得很有实际应用价值的。</p>
+<p>首先是链接地址：<a href="http://www.samdutton.com/pageVisibility/" target="_blank" rel="external">http://www.samdutton.com/pageVisibility/</a> //zxx: 希望不要明年这个时候被墙掉</p>
+<p>进去后，会有一个HTML5 video显示的Google Chrome浏览器广告的30秒funny视频，如下图所示：<br>视频截图</p>
+<p>直接浏览你是看不出什么玄乎的，请切换一个选项卡，让该页面置于后面，结果，您会发现这个选项卡的标题栏变成了这样：<br>标题栏显示视频暂停以及暂停时间</p>
+<p>看出来没？视频播放被中断了——当page不可见的时候，视频会自动暂停！</p>
+<p>此时，您再进入该选项卡，视频又从刚才的地方继续播放了，如下截图：<br>页面可见视频继续播放 张鑫旭-鑫空间-鑫生活</p>
+<p>个人愚见，国内的一些视频站点是不是可以应用下这个API呢！这样当妈妈进来送香蕉的时候，直接win+D显示桌面就可以了，声音啊什么的会自动关掉，振奋视频自动暂停，多赞的一个功能啊！以前的暂停视频+最小化浏览器直接变成了一步→最小化，节约了大量的宝贵时间，极大了提升了用户体验，恩！不错！！</p>
+<p>上面的例子毕竟长在外人田啊，一旦建起了围墙就看不到了，因此，自己折腾了一个简单的10秒钟低质量的猫猫版本。//zxx: 上面例子视频3M+，我估算了下，1000次访问的话，我勒个去，差不多3个G的流量去了，我现在每月流量都岌岌可危，因此，大家将就下下这个百来K的视频（Chrome浏览器以及IE10下可访问，或者谁给我尺寸小一点的ogv格式任意视频，让FireFox也能OK）~~</p>
+<p>您可以狠狠地点击这里：10秒钟妈妈来自动暂停视频demo</p>
+<p>操作同上，进入页面播放，离开页面暂停。<br>Chrome浏览器下效果截图 张鑫旭-鑫空间-鑫生活</p>
+<p>登录同步<br>这是我想的一个觉得蛮实用的应用。有如下场景：</p>
+<ol>
+<li>去淘宝买东西，未登录状态下，进入首页。</li>
+<li>然后新窗口打开任意页面，登录并成功返回。<br>淘宝网成功登录 张鑫旭-鑫空间-鑫生活</li>
+<li>再次访问刚才打开的首页，发现页面还是未登录状态（见下图），实际上用户已经登录了。<br>之前的首页仍然是未登录状态</li>
+</ol>
+<p>目前，这种状态大家似乎习以为常，觉得很OK，实际上这种糟糕的。就像没有空调的岁月里，人们觉得风扇很OK啊；但是，现在呢，还有谁屋顶吊个风扇吗！！有了页面可见性API，我们可以把体验做地更好。</p>
+<p>您可以狠狠地点击这里：网页可见性API与登录同步demo</p>
+<p>不出意外，您默认进来应该是提示你登录的：</p>
+<p>点击上图所示的“登录”文字链接，会在新窗口无刷新登录。任意用户名和密码，成功后再回到之前提示的登录页面，已经变成了：“欢迎回来，某某某”了！</p>
+<p>只要该页面不被关闭，你怎样刷新，都是“欢迎回来，某某某”。不过，在实际应用中，检测到已经登录成功，直接刷新当前页面的居多！IE10下，貌似本地存储无法同源不同页面共享，这使得通过HTML5本地存储共享信息的做法遇到了些许阻碍。</p>
+<p>精确的在线时长<br>这个不用多说，只有用户当前这个页面可见的时候，才计算在线时间，这样可以避免挂机的情况，时长计算更准确（这个可能不是个好idea）。</p>
+<p>在线聊天离开状态<br>网页聊天的时候，可以知道用户是否“离开”还是“离线”还是“下线”。当前页面不可见，但连接还在的时候，我们可以确定该人是离开的（涉及隐私，可能也不是个好idea）。</p>
+<p>以及其他些应用需求<br>等到了实际需求的时候，就会想到页面可见性API，看看能不能渐进增加下用户体验等。</p>
+<p>六、结语<br>脑细胞不够用了，肯定还有很多现有的可以应用在实际项目中的idea的，一时想不出——恩，比方说，每次用户切换到你这个页面上的时候，logo抖一下，或页面一道亮光闪过，后者欢迎语之类……总之，是个很有用很有趣的API.</p>
+<p>此API支持日趋稳定，不会有被去除的可能，因此，大伙儿可以放心大胆尝试之……因为是新东西，您的任何小小idea都会是首创，领先的创造者——开动你的脑筋，发挥你的创造性思维，让我们的网页更加生动多彩吧！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/11/22/17/">
+                    如何在页面上实现一个圆形的可点击区域？
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/11/22/15/">
+                    如何实现浏览器内多个标签页之间的通信? (阿里)
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"页面可见性（Page Visibility）API 可以有哪些用途？　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/11/22/17/" title="上一篇: 如何在页面上实现一个圆形的可点击区域？">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/11/22/15/" title="下一篇: 如何实现浏览器内多个标签页之间的通信? (阿里)">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/8/">Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/7/">页面导入样式时，使用link和@import有什么区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/6/">介绍一下对浏览器内核的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/21/">块状元素居中/浮动元素居中/绝对定位元素居中/内容居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/4/">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/5/">常见的浏览器内核有哪些？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/3/">简述一下你对HTML语义化的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/23/">常见兼容性问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/22/">display有哪些值？说明他们的作用。</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/2/">HTML5的离线储存怎么使用，工作原理能不能解释一下？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/19/">CSS选择符有哪些？哪些属性可以继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/18/">网页验证码是干嘛的，是为了解决什么安全问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/20/">CSS优先级算法如何计算？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/14/">Git使用以及远程仓库连接</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/17/">如何在页面上实现一个圆形的可点击区域？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/16/">页面可见性（Page Visibility）API 可以有哪些用途？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/15/">如何实现浏览器内多个标签页之间的通信? (阿里)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/12/">Label的作用是什么？是怎么用的？（加 for 或 包裹）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/1/">HTML5 为什么只需要写 <!DOCTYPE HTML>？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/13/">HTML5的form如何关闭自动完成功能？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/10/">浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/24/">自己封装的常用函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/11/">请描述一下 cookies，sessionStorage 和 localStorage 的区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/9/">行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 华哥说总结和分享都是好东西
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="华哥说总结和分享都是好东西" />
+
+
+
+<meta name="description" content="所谓的浏览器兼容性问题，是指因为不同的浏览器对同一段代码有不同的解析，造成页面显示效果不统一的情况。在大多数情况下，我们的需求是，无论用户用什么浏览器来查看我们的网站或者登陆我们的系统，都应该是统一的显示效果。所以浏览器的兼容性问题是前端开发人员经常会碰到和必须要解决的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见兼容性问题？">
+<meta property="og:url" content="http://yoursite.com/2016/12/04/23/index.html">
+<meta property="og:site_name" content="华哥技术博客">
+<meta property="og:description" content="所谓的浏览器兼容性问题，是指因为不同的浏览器对同一段代码有不同的解析，造成页面显示效果不统一的情况。在大多数情况下，我们的需求是，无论用户用什么浏览器来查看我们的网站或者登陆我们的系统，都应该是统一的显示效果。所以浏览器的兼容性问题是前端开发人员经常会碰到和必须要解决的问题。">
+<meta property="og:updated_time" content="2017-07-15T03:09:30.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见兼容性问题？">
+<meta name="twitter:description" content="所谓的浏览器兼容性问题，是指因为不同的浏览器对同一段代码有不同的解析，造成页面显示效果不统一的情况。在大多数情况下，我们的需求是，无论用户用什么浏览器来查看我们的网站或者登陆我们的系统，都应该是统一的显示效果。所以浏览器的兼容性问题是前端开发人员经常会碰到和必须要解决的问题。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="华哥技术博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/avatar.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>常见兼容性问题？ | 华哥技术博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">华哥说总结和分享都是好东西</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">文章分类</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/10412963@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端，努力往全栈发展，少年，加油！！！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">文章分类</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/10412963@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-23" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/04/23/" class="article-date">
+      <time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished">2016-12-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常见兼容性问题？
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+    </div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>所谓的浏览器兼容性问题，是指因为不同的浏览器对同一段代码有不同的解析，造成页面显示效果不统一的情况。在大多数情况下，我们的需求是，无论用户用什么浏览器来查看我们的网站或者登陆我们的系统，都应该是统一的显示效果。所以浏览器的兼容性问题是前端开发人员经常会碰到和必须要解决的问题。<a id="more"></a></excerpt></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>本文列举了10个常见的IE bug和解决方法。我相信这将能够帮助你减少调试IE布局不一致时花掉的时间。</p>
+<p>在处理IE方面每个人都有他们自己的故事。作为一个开发者我不得不面对大量的IE的古里古怪的问题并且有的时候你只是想用头撞墙。但是随着时间的推移，我们慢慢吃一堑长一智（有些时候那不是我们的错，是IE的错！）并且开始接受和理解IE的怪异行为。我们不得不这样因为仍然有数量可观的IE6用户。最好的做法是一开始就不断的从不同的浏览器测试你的网站。从一开始就解决布局问题要比在数千行html和css代码之后容易的多。</p>
+<p>有很多运动在抗议IE6，支持它的是大多数web专家和看起来不怎么关心的普通用户。所以，我们现在能做什么？我们不得不继续挖掘来解决IE6的问题。但是，等一下，有一个振奋人心的消息。基于w3cschool的月度报表，IE6的用户这些年已经减少了一些。从2006年6月的60.3%到现在2009年9月的13.6%。按照这种比例，我们应该能在2010年年底的时候放弃IE6(译注：国外的情况还真是一片大好啊~。~)</p>
+<p>好了，回到现实，我已经列出了全部我之前遇到的问题作为未来参考的列表。我相信这将能够帮助你减少调试IE布局不一致时花掉的时间。</p>
+<p>1、IE6 幽灵文本(Ghost Text bug)</p>
+<p>在我写本文之前，我遇到了这个bug。它相当的古怪和滑稽。一块不知哪来的重复的文本，被IE6显示在靠近原文本的下面。(译注：也可以参看 Explorer 6 Duplicate Characters Bug 获得bug演示)。我无法解决它，所以我搜索它，果然，这是另一个IE6的bug。</p>
+<p>对此有许多解决方法，但是没有一个对我的例子有效(因为网站的复杂性我无法使用其中的一些方法)。所以我使用了hack。在原文本之后增加空格看起来能解决这个问题。</p>
+<p>但是，从 Hippy Tech Blog 那里了解到，问题背后的原因是由于html注释标签。IE6不能正确的渲染它。下面是他建议的解决方案列表：</p>
+<p>解决方法:</p>
+<p>使用标签包围注释</p>
+<p>移除注释</p>
+<p>在前浮动上增加样式 {display:inline;}</p>
+<p>在适当的浮动的div上使用负边距</p>
+<p>在原文本增加额外的 (比如10个空格) (hacky way)</p>
+<p>2、相对位置和溢出隐藏(Position Relative and Overflow Hidden)</p>
+<p>这个问题我遇到过很多次，当时我正在准备一个JQuery的教程，因为我使用了很多overflow hidden来达到我想要的布局。</p>
+<p>问题发生在当父元素的overflow被设置成hidden并且子元素被设置成position:relative。</p>
+<p>CSS-Trick有一个很好的例子来演示这个bug。position:relative and overflow in internet explorer</p>
+<p>解决方法：</p>
+<p>为父元素增加position:relative;</p>
+<p>3、IE的最小高度(Min-Height for IE)</p>
+<p>这很简单，IE忽略min-height属性。你可以用下面的hack来修复它。感谢Dustin Diaz</p>
+<p>。</p>
+<p>这个解决方法在IE6, Mozilla/Firefox/Gecko, Opera 7.x+, Safari1.2里都工作的很好。</p>
+<p>解决方法：</p>
+<p>selector {</p>
+<p>min-height:500px;</p>
+<p>height:auto !important;</p>
+<p>height:500px;</p>
+<p>}</p>
+<p>4、Bicubic图像缩放(Bicubic Image Scaling)</p>
+<p>你会喜欢这个的。IE那糟糕图像缩放让你很困扰？如果你拿IE和其他浏览器比较，IE缩小的图像看起来不如其他浏览器。</p>
+<p>解决方法：</p>
+<p>img { -ms-interpolation-mode: bicubic; }</p>
+<p>5、 PNG透明(PNG Transparency)</p>
+<p>我猜每个人都知道这个，但我仍把它列在这里，作为以后的参考。</p>
+<p>所以如果你想要使用透明图像并且GIF不能给你想要的质量，你会需要这个对PNG的hack。你必须意识到，如果你使用一张PNG图像作为背景，你将不能设置背景的位置。</p>
+<p>解决方法：</p>
+<p>6、 IFrame透明背景 (IFrame Transparent Background)</p>
+<p>在firefox和safari里你应该不会遇到这个问题因为默认情况下，iframe的背景被设置为transparent，但是在IE里，却不是如此。你需要用到allowTransparency 属性并且加入下面的CSS代码来达成目的。</p>
+<p>解决方法：</p>
+<p>body {</p>
+<p>background-color:transparent;</p>
+<p>}</p>
+<p>7、禁用IE默认的垂直滚动条(Disabled IE default Vertical Scroll bar)</p>
+<p>默认情况下，即使内容适合窗口大小，IE(译注：IE6/7)也会显示垂直滚动条。你可以使用overflow:auto，让滚动条只在你需要时出现。</p>
+<p>html {</p>
+<p>overflow: auto;</p>
+<p>}</p>
+<p>8、:hover伪类(:hover Pseudo Class)</p>
+<p>IE只支持元素的 :hover伪类。你可以使用jQuery的hover event来达到相同效果。</p>
+<p>解决方法：</p>
+<p>$(‘#list li’).hover(</p>
+<p>function () {</p>
+<p>$(this).addClass(‘color’);</p>
+<p>},</p>
+<p>function() {</p>
+<p>$(this).removeClass(‘color’);</p>
+<p>}</p>
+<p>);</p>
+<p>.color {</p>
+<p>background-color:#f00;</p>
+<p>}</p>
+<p>Item 1</p>
+<p>Item 2</p>
+<p>Item 3</p>
+<p>9、盒模型Hack(Box Hack Model)</p>
+<p>这是IE里最热门的bug了。基本的理解是，IE计算宽度(width)的方式不同。基于w3c标准，一个元素总宽度应该是：</p>
+<p>总宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right</p>
+<p>但是，IE计算宽度时没有加上填充和边框：</p>
+<p>总宽度 = margin-left + width + margin-right</p>
+<p>更多的细节，请参考这个链接：Internet Explorer和CSS盒模型详细解释</p>
+<p>解决方法：</p>
+<p>使用w3c的标准兼容模式。IE6或者之后的版本能基于w3c的标准计算，但是你仍旧会在IE5中遇到问题。</p>
+<p>或者你可以用CSS Hack来解决这个问题。所有标准兼容的浏览器都能读取w\idth:180px 除了IE5。</p>
+<p>#content {</p>
+<p>padding:10px;</p>
+<p>border:1px solid;</p>
+<p>width:200px;</p>
+<p>w\idth:180px;</p>
+<p>}</p>
+<p>10、 双倍边距bug(Double Margin Bug Fix)</p>
+<p>如果你有一个分配有左/右边距的浮动元素，IE6会使得边距双倍化。比如，margin-left:5px 将会变成10px。你</p>
+<p>可以通过对浮动元素添加display:inline来解决这个问题。</p>
+<p>解决方法：</p>
+<p>div#content {</p>
+<p>float:left;</p>
+<p>width:200px;</p>
+<p>margin-left:10px;</p>
+<p>display:inline;</p>
+<p>}</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/12/04/3/">
+                    简述一下你对HTML语义化的理解？
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/04/22/">
+                    display有哪些值？说明他们的作用。
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"常见兼容性问题？　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/12/04/3/" title="上一篇: 简述一下你对HTML语义化的理解？">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/12/04/22/" title="下一篇: display有哪些值？说明他们的作用。">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/8/">Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/7/">页面导入样式时，使用link和@import有什么区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/6/">介绍一下对浏览器内核的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/21/">块状元素居中/浮动元素居中/绝对定位元素居中/内容居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/4/">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/5/">常见的浏览器内核有哪些？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/3/">简述一下你对HTML语义化的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/23/">常见兼容性问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/22/">display有哪些值？说明他们的作用。</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/2/">HTML5的离线储存怎么使用，工作原理能不能解释一下？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/19/">CSS选择符有哪些？哪些属性可以继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/18/">网页验证码是干嘛的，是为了解决什么安全问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/20/">CSS优先级算法如何计算？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/14/">Git使用以及远程仓库连接</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/17/">如何在页面上实现一个圆形的可点击区域？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/16/">页面可见性（Page Visibility）API 可以有哪些用途？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/15/">如何实现浏览器内多个标签页之间的通信? (阿里)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/12/">Label的作用是什么？是怎么用的？（加 for 或 包裹）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/1/">HTML5 为什么只需要写 <!DOCTYPE HTML>？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/13/">HTML5的form如何关闭自动完成功能？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/10/">浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/24/">自己封装的常用函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/11/">请描述一下 cookies，sessionStorage 和 localStorage 的区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/9/">行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 华哥说总结和分享都是好东西
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

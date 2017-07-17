@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="华哥说总结和分享都是好东西" />
+
+
+
+<meta name="description" content="怪异模式和严格模式（译注：一般称为标准模式：Standards Mode,下文中的严格模式都可以理解为标准模式）是浏览器解析CSS时的两种‘模式’。这篇文章将简单阐述这两种模式之间的差异。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Doctype作用？严格模式与混杂模式如何区分？它们有何意义?">
+<meta property="og:url" content="http://yoursite.com/2016/12/07/8/index.html">
+<meta property="og:site_name" content="华哥技术博客">
+<meta property="og:description" content="怪异模式和严格模式（译注：一般称为标准模式：Standards Mode,下文中的严格模式都可以理解为标准模式）是浏览器解析CSS时的两种‘模式’。这篇文章将简单阐述这两种模式之间的差异。">
+<meta property="og:updated_time" content="2017-07-15T03:10:06.186Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Doctype作用？严格模式与混杂模式如何区分？它们有何意义?">
+<meta name="twitter:description" content="怪异模式和严格模式（译注：一般称为标准模式：Standards Mode,下文中的严格模式都可以理解为标准模式）是浏览器解析CSS时的两种‘模式’。这篇文章将简单阐述这两种模式之间的差异。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="华哥技术博客" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/avatar.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Doctype作用？严格模式与混杂模式如何区分？它们有何意义? | 华哥技术博客</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">华哥说总结和分享都是好东西</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">文章分类</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/10412963@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端，努力往全栈发展，少年，加油！！！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">华哥说总结和分享都是好东西</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">文章分类</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/10412963@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-8" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/07/8/" class="article-date">
+      <time datetime="2016-12-06T16:00:00.000Z" itemprop="datePublished">2016-12-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Doctype作用？严格模式与混杂模式如何区分？它们有何意义?
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/HTML/">HTML</a>
+    </div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>怪异模式和严格模式（译注：一般称为标准模式：Standards Mode,下文中的严格模式都可以理解为标准模式）是浏览器解析CSS时的两种‘模式’。这篇文章将简单阐述这两种模式之间的差异。<a id="more"></a></excerpt></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><the rest="" of="" contents="" |="" 余下全文=""></the></h2><p>译注：一个网页一般由两部分组成即：HTML（Hypertext Markup Language）和CSS（Cascade Style Sheets）。<br>HTML负责描述网页的结构和内容（如标题，导航栏等），而CSS则负责网页的表现（外观）（如背景颜色，字体样式等）。</p>
+<p>问题的产生：</p>
+<p>当Netscape4（译注：网景公司早期的浏览器）和IE4（微软公司早期的浏览器）实现CSS机制时，并没有遵循W3C提出的标准。Netscape4 提供了糟糕的支持，而IE4 虽然接近标准，但依旧未能完全正确的支持标准。尽管IE 5 修复了IE4 许多的问题（bugs），但是依然延续CSS实现中的其它故障（主要是盒模型（box model）问题）。</p>
+<p>为了保证自己的网站在不同的浏览器中都能正确展现，网页开发者不得不依据各个浏览器的自身的规范来使用CSS。因此大部分网站的CSS实现并未符合W3C的标准。</p>
+<p>然而随着标准一致性变得越来越重要，浏览器开发商不得不面临一个艰难的抉择：逐渐遵循W3C的标准是前进的方向。但是改变现有CSS的实现，完整去遵循标准，会使许多网站或多或少受到破坏。如果浏览器突然以正确的方式解析现存的CSS，陈旧的网站显示必然受到影响。</p>
+<p>因此立即遵循标准会产生问题，然而忽略标准则又会维持浏览器大战时（译注：微软和网景之间的一段竞争）所产生的混乱。</p>
+<p>解决方案：</p>
+<p>任何的解决方案必须跟随如下两个方面：</p>
+<p>1：允许网站开发者能够选择他们所熟知的模式。</p>
+<p>2：依然使用旧式规则显示陈旧的网站。</p>
+<p>换句话说，所有的浏览器需要提供两种模式：怪异模式（即兼容模式）服务于旧式规则，严格模式服务于标准规则。Mac平台的IE浏览器最先实现这两种模式，Mozilla， Safari、Opera和Windows平台的IE6也相继实现了这两种模式。WIndows平台的IE5和Netscape4则只提供了怪异模式。</p>
+<p>选择使用哪种模式需要一个触发器，而 “DOCTYP切换” 则用于此目的。依照标准，任何一个(X)HTML文档必须拥有一个DOCTYPE（译注：DTD（文档类型定义）是一组机器可读的规则，它们指示(X)HTML文档中允许有什么，不允许有什么，DOCTYPE正是用来告诉浏览器使用哪种DTD,一般放在(X)HTML文档开头声明）用以告诉其他人这个文档的类型风格</p>
+<pre><code>1：产生于标准化浪潮以前的网页并没有DOCTYPE声明。因此&apos;没有DOCTYPE&apos;意味着触发怪异模式：既依据旧式的CSS规则渲染网页。
+
+2：相反，如果开发者明确知道包含DOCTYPE，他们应该明白他们想要怎么做。因此大部分的DOCTYPE声明将触发严格模式：即依据标准的CSS规则渲染网页。
+
+3：任何新的或未知的DOCTYPE将触发严格模式。
+
+4：一些页面依据怪异模式而写，但是却包含DOCTYPE。这种情况下各个浏览器依据自己的DOCTYPE规则列表来触发怪异模式，参照这个浏览器比较图表 。
+</code></pre><p>注意：你的网页并不一定要依据所选择的DOCTYPE去获得有效性验证，一个DOCTYPE标签足以触发严格模式。</p>
+<p>我在大部分网页中使用如下的DOCTYPE。它除了声明我的网页是XHTML 1.0 过渡类型之外，还将在所有浏览器中触发“准严格模式”（译注：下文将介绍这个模式）</p>
+<p>完美的解决方案？</p>
+<p>就个人而言，我并不十分满意“DOCTYPE切换”方案。一个DOCTYPE所提供的信息是(X)HTML文档所拥有的类型风格，即文档的结构，而不应该提供任何关于文档表现（外观）的信息，因为那违反了CSS关于页面结构和表现分离的原则。</p>
+<p>并发症：准严格模式</p>
+<p>在早些时候，尝试使用严格模式总是会产生关于图片会突然获得旧式的底部边距，并且无法移除的讨论。产生这个现象的原因是严格模式将怪异模式和严格模式标签当成行内元素，这意味着一些空间将被保留给一些拥有”尾部“的字符如（g, j, q），而图片并没有“尾部”字符，所以这些空间将不会被使用，但是却依旧保留着。</p>
+<p>解决办法是声明图片为块级元素{display:block}</p>
+<p>浏览器厂商，尤其是Mozilla，认为这是一种产生困惑的情况，于是他们引入了“准严格模式”（译注：也称为准标准模式 Almost Standards Mode），这与严格模式一样，除了它将图片当作块级元素而不是行内元素。</p>
+<p>Windows平台IE的特殊性 : XML声明</p>
+<p>在Windows平台的IE6 浏览器中，微软实现了一个额外的规则：如果DOCTYPE声明在XML声明之后，将触发怪异模式。这样做是为了允许开发者在怪异模式下获得“有效的网页” （需要DOCTYPE）。下面是XML声明，你需要将它放在页面的开头，在DOCTYPE之前。</p>
+<p>注意这种行为已经从IE7 中移除。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/12/07/7/">
+                    页面导入样式时，使用link和@import有什么区别？
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Doctype作用？严格模式与混杂模式如何区分？它们有何意义?　| 华哥技术博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/12/07/7/" title="下一篇: 页面导入样式时，使用link和@import有什么区别？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/8/">Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/7/">页面导入样式时，使用link和@import有什么区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/6/">介绍一下对浏览器内核的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/21/">块状元素居中/浮动元素居中/绝对定位元素居中/内容居中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/4/">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/5/">常见的浏览器内核有哪些？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/3/">简述一下你对HTML语义化的理解？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/23/">常见兼容性问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/04/22/">display有哪些值？说明他们的作用。</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/2/">HTML5的离线储存怎么使用，工作原理能不能解释一下？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/19/">CSS选择符有哪些？哪些属性可以继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/18/">网页验证码是干嘛的，是为了解决什么安全问题？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/27/20/">CSS优先级算法如何计算？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/14/">Git使用以及远程仓库连接</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/17/">如何在页面上实现一个圆形的可点击区域？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/16/">页面可见性（Page Visibility）API 可以有哪些用途？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/22/15/">如何实现浏览器内多个标签页之间的通信? (阿里)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/12/">Label的作用是什么？是怎么用的？（加 for 或 包裹）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/1/">HTML5 为什么只需要写 <!DOCTYPE HTML>？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/13/">HTML5的form如何关闭自动完成功能？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/10/">浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/24/">自己封装的常用函数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/11/">请描述一下 cookies，sessionStorage 和 localStorage 的区别？</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/03/9/">行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 华哥说总结和分享都是好东西
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
